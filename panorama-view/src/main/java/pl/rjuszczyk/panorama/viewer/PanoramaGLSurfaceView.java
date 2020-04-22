@@ -171,8 +171,14 @@ public class PanoramaGLSurfaceView extends GLSurfaceView {
     }
 
     public void onPause() {
-        gyroscopeHandler.stop();
-        gyroscopeHandler2.stop();
+        if(gyroscopeHandler != null) {
+            gyroscopeHandler.stop();
+        }
+
+        if(gyroscopeHandler2 != null) {
+            gyroscopeHandler2.stop();
+        }
+
         if (autoCorrection) {
             timer.cancel();
         }
